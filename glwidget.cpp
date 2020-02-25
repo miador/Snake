@@ -186,7 +186,7 @@ void GLWidget::paintGL()
            // float xx = wv[m_size-1];
             //float zz = vv[m_size];
 
-                //Snake positions after collide the walls
+
             if(wv[m_size-1]>2){
                 xPos=std::max(xPos-4, -2.0f);
             }
@@ -201,7 +201,7 @@ void GLWidget::paintGL()
             }
 
 
-            for(int i = 0; i < len+2; i++){
+            for(int i = 0 ; i < len ; i++){
 
                 if(wv[m_size-10*i-1]>2){
                     wv[m_size-10*i-1]=std::max(wv[m_size-10*i-1]-4, -2.0f);
@@ -223,9 +223,9 @@ void GLWidget::paintGL()
                            m_world.translate(wv[idx], 0 , vv[idx]);
                            m_world.rotate(m_robotDir,0,1,0);
                            float theta1 = float(i) / 100 * 2 * float(M_PI);
-                           m_world.scale(QVector3D(0.2f, 0.2f, 0.2f));
+                           m_world.scale(QVector3D(0.1f, 0.1f, 0.1f));
                            setTransforms();
-                           m_program->setUniformValue(m_modelColorLoc, QVector3D(cos(theta1), sin(theta1), 1));
+                           m_program->setUniformValue(m_modelColorLoc, QVector3D(cos(theta1) * 0.5f + 0.5f, sin(theta1) * i*0.5f + 0.5f, 0.0));
                            m_meshes["Sphere"]->render(this);
                 m_world = worldMatrixStack.pop();
 
@@ -234,7 +234,7 @@ void GLWidget::paintGL()
 
 
 
-            for(int i = 1; i < len; i++){
+            for(int i = 1 ; i < len  ; i++){
 
                 if(wv[m_size-10*i-1]>2){
                     wv[m_size-10*i-1]=std::max(wv[m_size-10*i-1]-4, -2.0f);
@@ -306,21 +306,20 @@ void GLWidget::paintGL()
 
 
         for (int i=0; i<points.size(); i++){
-    //Creating of the baits
+
             worldMatrixStack.push(m_world);
                         m_world.translate(points[i]);
                         m_world.scale(QVector3D(0.1f, 0.1f, 0.1f));
-                        float theta1 = float(i) / 100 * 2 * float(M_PI);
                         setTransforms();
-                        m_program->setUniformValue(m_modelColorLoc, QVector3D(sin(theta1), cos(theta1), 1)); //
+                        m_program->setUniformValue(m_modelColorLoc, QVector3D(1,1,1));
                         m_meshes["Sphere"]->render(this);
                     m_world = worldMatrixStack.pop();
         }
 
 
 
-        if((m_timer%40) == 0){
-            //timer for creating baits
+        if((m_timer%400) == 0){
+
            float x = float(rand()%3801)/1000.0f-1.9f;
            float z = float(rand()%3801)/1000.0f-1.9f;
            points.push_back(QVector3D(x,0,z));
@@ -369,7 +368,6 @@ void GLWidget::paintGL()
 
 }*/
 
-        //Walls
         worldMatrixStack.push(m_world);
         m_world.translate(QVector3D(2,0,0));
         m_world.scale(QVector3D(0.05f, 0.05f, 4));

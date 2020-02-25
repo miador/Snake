@@ -8,9 +8,8 @@ using namespace std;
 MainWindow::MainWindow()
 {  
 
-    setWindowTitle(tr("3D Snake Game"));
+    setWindowTitle(tr("QT GLGame"));
     setCentralWidget(new Window(this));
-    setWindowIcon(QIcon("C:\\Users\\yusufkaradag2\\Desktop\\ss.png"));
 }
 
 
