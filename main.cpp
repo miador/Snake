@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
 
-    QCoreApplication::setApplicationName("Qt GLGame");
+    QCoreApplication::setApplicationName("3D Snake Game");
     QCoreApplication::setOrganizationName("WIZUT");
     QCoreApplication::setApplicationVersion(QT_VERSION_STR);
 
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     MainWindow mainWindow;
     mainWindow.resize(mainWindow.sizeHint()); // size of the main window (defined in GLWidget)
     mainWindow.show(); // shows main window
-    //mainWindow.showMaximized(); // main window will be maximized
+    mainWindow.showMaximized(); // main window will be maximized
 
 
     return app.exec();

@@ -20,3 +20,5 @@ OBJECTS_DIR = builds/objects
 DISTFILES += \
     builds/resources/shader.fs \
     builds/resources/shader.vss
+
+
