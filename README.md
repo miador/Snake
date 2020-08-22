@@ -41,4 +41,4 @@ In order to run game successfully, the "Shadow Build" option must be deselected 
 ![Build](https://github.com/miador/Snake/blob/master/build.PNG)
 
 
-   :star: Star us on GitHub — it helps!
+   :star: Star us on GitHub — it really helps!
