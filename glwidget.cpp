@@ -156,18 +156,6 @@ void GLWidget::paintGL()
     m_world.rotate(m_zRot, 0, 0, 1); // rotates object around Z axis (keyboard)
 
 
-
-
-
-    // Bunny
-   /* worldMatrixStack.push(m_world);
-        m_world.translate(0.7f, 0.0f, 0.2f);
-        m_world.scale(QVector3D(0.1f, 0.1f, 0.1f));
-        setTransforms();
-        m_program->setUniformValue(m_modelColorLoc,QVector3D(1.0f, 1.0, 1.0));
-        m_meshes["Bunny"]->render(this);
-    m_world = worldMatrixStack.pop();*/
-
     // Robot
     wv.push_back(xPos);
     vv.push_back(zPos);
@@ -264,38 +252,6 @@ void GLWidget::paintGL()
                 }
             }
 
-            /*for(int i = 0 ; i < 40+len  ; i++){
-
-                if(wv[m_size-10*i-1]>2){
-                    wv[m_size-10*i-1]=std::max(wv[m_size-10*i-1]-4, -2.0f);
-                }
-                else if(wv[m_size-10*i-1]<-2){
-                    wv[m_size-10*i-1]=std::min(wv[m_size-10*i-1]+4, 2.0f);
-                }
-
-                if(vv[m_size-10*i-1]>2) {
-                        vv[m_size-10*i-1]=std::max(vv[m_size-10*i-1]-4, -2.0f);
-                }
-
-
-                else if(vv[m_size-10*i-1]<-2) {
-                        vv[m_size-10*i-1]=std::min(vv[m_size-10*i-1]+4, 2.0f);
-                }
-
-
-
-                worldMatrixStack.push(m_world);
-                           m_world.translate(wv[m_size-10*i-1], 0 , vv[m_size-10*i-1]);
-                           m_world.rotate(m_robotDir,0,1,0);
-                           float theta1 = float(i) / 100 * 2 * float(M_PI);
-
-                           m_world.scale(QVector3D(0.1f, 0.1f, 0.1f));
-                           setTransforms();
-                           m_program->setUniformValue(m_modelColorLoc, QVector3D(cos(theta1) * 0.5f + 0.5f, sin(theta1) * i*0.5f + 0.5f, 0.0));
-                           m_meshes["Sphere"]->render(this);
-                       m_world = worldMatrixStack.pop();
-
-            }*/
 
 
 
@@ -339,34 +295,6 @@ void GLWidget::paintGL()
             }
         }
 
-        /*for(int i = 10; i < len+2; i++){
-
-            if(wv[m_size-10*i-1]>2){
-                wv[m_size-10*i-1]=std::max(wv[m_size-10*i-1]-4, -2.0f);
-            }
-            else if(wv[m_size-10*i-1]<-2){
-                wv[m_size-10*i-1]=std::min(wv[m_size-10*i-1]+4, 2.0f);
-            }
-
-            if(vv[m_size-10*i-1]>2) {
-                    vv[m_size-10*i-1]=std::max(vv[m_size-10*i-1]-4, -2.0f);
-            }
-
-            else if(vv[m_size-10*i-1]<-2) {
-                    vv[m_size-10*i-1]=std::min(vv[m_size-10*i-1]+4, 2.0f);
-            }
-
-            QVector3D P = QVector3D(wv[m_size-10*i-1], 0 , vv[m_size-10*i-1]);
-            QVector3D V = QVector3D(xPos, 0 , zPos)-P;
-            qDebug()<<V.length();
-            if(V.length()<0.01){
-                //len++;
-                qDebug()<<"END";
-
-                //points.erase(points.begin()+i);
-            }
-
-}*/
 
         worldMatrixStack.push(m_world);
         m_world.translate(QVector3D(2,0,0));
